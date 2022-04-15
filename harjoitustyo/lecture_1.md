@@ -1,5 +1,7 @@
 # Kehitysympäristö
 
+_Niklas Nurminen - Johdanto datatieteeseen_
+
 Kehitysympäristönä käytän Google Cloud Platformia. GCP:ssä pystyn luomaan virtuaalikoneen, jossa pyörii Ubuntu Linux -käyttöjärjestelmä. Tälle virtuaalikoneelle pystyy helposti asentamaan Jupyter notebookin.
 
 GCP ympäristön aloittaminen vaatii Google-tilin. Uudet käyttäjät saavat käyttöönsä 300$. Ohjeet koko prosessiin löytyy [täältä.](https://techdirectarchive.com/2021/08/20/running-jupyter-notebook-on-google-cloud-instance/)
