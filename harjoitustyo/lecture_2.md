@@ -1,5 +1,7 @@
 # Datan kerääminen
 
+_Niklas Nurminen - Johdanto datatieteeseen_
+
 Valmiin datasetin löysin Kagglesta. Dataset koostui kahdesta eri .csv tiedostosta. Toinen tiedosto oli täynnä aitoja uutisia, kun puolestaan toinen oli täysin väärennetty. Tulen jakamaan datasetin osiin: opetus- ja testidataksi. Datan setin löydät [tästä.](https://www.kaggle.com/datasets/clmentbisaillon/fake-and-real-news-dataset) Datasetin avulla pystytään opettamaan luokittelija, mikä myöhemmin pystyy arvioimaan, että onko jokin uutinen aito. HUOM. käsitellään vain englannin kielisiä uutisia.
 
 Toinen datasetti kerättiin Twitteristä käyttämällä Pythonin Tweepy kirjastoa. Tällä datasetillä pystyn hyvin tarkastelemaan aiemmin opetetun luokittelijan toimintaa. Mielenkiintoista nähdä, kuinka suuren osan luokittelija luokittelee epäaidoksi uutiseksi. Jos intoa ja aikaa riittää niin myöhemmin voisi vielä kerätä esimerkiksi uutistoimisto BBC twitter kanavalta uutisia. Voisi ainakin kuvitella, että näistä tweettauksista suurin osa olisi aitoja.
@@ -16,16 +18,15 @@ df = pd.DataFrame(columns=['text', 'created_at', 'language'])
 
 # Query tweets with #news. Show only 100 tweets
 query = '#news'
-tweets = client.search_recent_tweets(query=query, tweet_fields=['created_at', 'lang'], max_results=100)
+tweets = client.search_recent_tweets(query=query, tweet_fields=['lang'], max_results=100)
 
 for tweet in tweets.data:
     text = tweet.text
-    created_at = tweet.created_at
     language = tweet.lang
 
     # Focus only to tweets in english
     if language == 'en':
-        tmp = [text, created_at, language]
+        tmp = [text, language]
         df.loc[len(df)] = tmp
 
 # Total amount of tweets in dataframe
