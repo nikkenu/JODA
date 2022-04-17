@@ -14,7 +14,7 @@ import pandas as pd
 client = tweepy.Client(bearer_token='')
 
 # Create Pandas dataframe with three columns
-df = pd.DataFrame(columns=['text', 'created_at', 'language'])
+df = pd.DataFrame(columns=['text', 'language'])
 
 # Query tweets with #news. Show only 100 tweets
 query = '#news'
