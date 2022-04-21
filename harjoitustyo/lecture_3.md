@@ -17,6 +17,7 @@ news_df = pd.concat([truenews, fakenews])
 news_df = news_df.sample(frac = 1).reset_index(drop=True)
 news_df.head()
 ```
+![News DataFrame](./pictures/news_df_1.png)
 
 Seuraavana vaiheena tarkistettiin, että sisältääkö DataFramet NULL arvoja. Sen lisäksi tarkastettiin muuttujien tietotyypit. 
 
@@ -148,12 +149,24 @@ tweet_df['sequence'] = np.nan
 tweet_df['sequence'] = list(tokenize(tweet_df['clean_text']))
 
 tweet_df.head()
+```
+![Tweet DataFrame](./pictures/tweet_df.png)
 
+```python
 news_df['sequence'] = np.nan
 news_df['sequence'] = list(tokenize(news_df['clean_text']))
 
 news_df.head()
 ```
+![News DataFrame](./pictures/news_df.png)
+
+Lopuksi vielä jaettiin news dataframe osiksi. 20 % test ja 80% train.
+
+```python
+train_df, test_df = train_test_split(news_df, test_size=0.2)
+train_df.head()
+```
+![Train DataFrame](./pictures/train_df.png)
 
 ### Lähteet
 1. [NLTK text cleaning](https://www.analyticsvidhya.com/blog/2020/11/text-cleaning-nltk-library/)
