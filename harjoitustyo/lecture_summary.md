@@ -136,7 +136,7 @@ news_df = pd.concat([truenews, fakenews])
 news_df = news_df.sample(frac = 1).reset_index(drop=True)
 news_df.head()
 ```
-![News DataFrame](./pictures/news_df_1.png)
+![News DataFrame](/pictures/news_df_1.png)
 
 Seuraavana vaiheena tarkistettiin, että sisältääkö DataFramet NULL arvoja. Sen lisäksi tarkastettiin muuttujien tietotyypit. 
 
