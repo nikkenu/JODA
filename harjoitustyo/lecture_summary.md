@@ -269,7 +269,7 @@ tweet_df['sequence'] = list(tokenize(tweet_df['clean_text']))
 
 tweet_df.head()
 ```
-![Tweet DataFrame](./pictures/tweet_df.png)
+![Tweet DataFrame](./pictures/tweet_df.PNG)
 
 ```python
 news_df['sequence'] = np.nan
@@ -277,7 +277,7 @@ news_df['sequence'] = list(tokenize(news_df['clean_text']))
 
 news_df.head()
 ```
-![News DataFrame](./pictures/news_df.png)
+![News DataFrame](./pictures/news_df.PNG)
 
 Lopuksi vielä jaettiin news dataframe osiksi. 20 % test ja 80% train.
 
@@ -285,7 +285,7 @@ Lopuksi vielä jaettiin news dataframe osiksi. 20 % test ja 80% train.
 train_df, test_df = train_test_split(news_df, test_size=0.2)
 train_df.head()
 ```
-![Train DataFrame](./pictures/train_df.png)
+![Train DataFrame](./pictures/train_df.PNG)
 
 ### Lähteet
 1. [NLTK text cleaning](https://www.analyticsvidhya.com/blog/2020/11/text-cleaning-nltk-library/)
@@ -314,7 +314,7 @@ tokenized_df.columns=['word', 'quantity']
 tokenized_df = tokenized_df.sort_values(by='quantity', ascending=False)
 tokenized_df[:30].plot(kind="bar",x="word", orientation="vertical", figsize=(15,10), xlabel="Tokens", ylabel="Count", colormap="viridis", table=False, grid=False, fontsize=12, rot=35, position=1, title="30 most popular words in dataframes", legend=True).legend(["Tokens"], loc="lower left", prop={"size":15})
 ```
-![Popular words](./pictures/K_1.png)
+![Popular words](./pictures/K_1.PNG)
 
 ```python
 plt.figure(figsize=(20,20))
@@ -368,7 +368,7 @@ tfidf_transformer.fit(word_count_vector)
 df_idf = pd.DataFrame(tfidf_transformer.idf_, index=cv.get_feature_names_out(),columns=["idf_weights"]) 
 df_idf.sort_values(by=['idf_weights'])
 ```
-![TF-IDF weights](./pictures/tf_idf_weights.png)
+![TF-IDF weights](./pictures/tf_idf_weights.PNG)
 
 ```python
 count_vector = cv.transform([x for x in clean_text_combined])
@@ -469,7 +469,7 @@ model.compile(optimizer=tf.keras.optimizers.Adam(learning_rate = 0.01), loss='bi
 model.summary()
 ```
 
-![Model](./pictures/model.png)
+![Model](./pictures/model.PNG)
 
 Jotkin mallin parametrit olivat itselle erittäin mystisiä ja niiden testaaminen oli hidasta. Koko mallin rakentaminen kesti 30 minuuttia, joten pyrin välttämään turhaa säätämistä. Tietenkin epochsin määrää voisi vähentää esimerkiksi neljään, jolloin datasetti käytäisiin vain 4 kertaa läpi.
 
@@ -500,7 +500,7 @@ predict = model.predict_classes(X_test)
 print(classification_report(y_test, predict))
 ```
 
-![Testdata predict](./pictures/testidata_ennusteet.png)
+![Testdata predict](./pictures/testidata_ennusteet.PNG)
 
 Precision eli tarkkuus kertoo, kuinka positiiviseksi luokitellut datapisteet oli positiivisia. Recall eli herkkyys taas kertoo siitä, kuinka hyvin malli pystyy luokittelemaan positiiviseksi kaikki oikeasti positiiviset tapaukset. [Tästä](https://en.wikipedia.org/wiki/Precision_and_recall) voi vielä lukea lisää tietoa. F1-arvo puolestaan on tarkkuden ja herkkyyden painotettu keskiarvo. Yhteenvetona voidaan sanoa, että tulokset ovat todella hyvät.
 
