@@ -20,7 +20,7 @@ tweet_prediction_df.drop_duplicates(subset='clean_text', keep=False, inplace=Tru
 tweet_prediction_df['label'].value_counts().plot(kind='barh', figsize=(10,5), colormap="viridis")
 ```
 
-![Tweet dataframe prediction](./pictures/tweet_pred.png)
+![Tweet dataframe prediction](../pictures/tweet_pred.png)
 
 ```python
 pd.set_option('display.max_colwidth', None)

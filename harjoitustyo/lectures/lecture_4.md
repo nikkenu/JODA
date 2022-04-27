@@ -15,14 +15,14 @@ tokenized_df.columns=['word', 'quantity']
 tokenized_df = tokenized_df.sort_values(by='quantity', ascending=False)
 tokenized_df[:30].plot(kind="bar",x="word", orientation="vertical", figsize=(15,10), xlabel="Tokens", ylabel="Count", colormap="viridis", table=False, grid=False, fontsize=12, rot=35, position=1, title="30 most popular words in dataframes", legend=True).legend(["Tokens"], loc="lower left", prop={"size":15})
 ```
-![Popular words](./pictures/K_1.png)
+![Popular words](../pictures/K_1.PNG)
 
 ```python
 plt.figure(figsize=(20,20))
 wc = WordCloud(max_words= 200, width = 1600, height= 800).generate_from_frequencies(tokenized_counts)
 plt.imshow(wc, interpolation = 'bilinear')
 ```
-![All words cloud](./pictures/all_words_cloud.png)
+![All words cloud](../pictures/all_words_cloud.png)
 
 ## Uutisten ja tweettauksien pituus
 
@@ -46,7 +46,7 @@ Opetusdatan jakaantuminen luotettaviin ja valheellisiin uutisiin.
 train_df['label'].value_counts().plot(kind='barh', figsize=(10,5), colormap="viridis")
 ```
 
-![Train dataset value counts](./pictures/train_value_counts.png)
+![Train dataset value counts](../pictures/train_value_counts.png)
 
 Testidatan jakaantuminen luotettaviin ja valheellisiin uutisiin.
 
@@ -54,7 +54,7 @@ Testidatan jakaantuminen luotettaviin ja valheellisiin uutisiin.
 test_df['label'].value_counts().plot(kind='barh', figsize=(10,5), colormap="viridis")
 ```
 
-![Test dataset value counts](./pictures/test_value_counts.png)
+![Test dataset value counts](../pictures/test_value_counts.png)
 
 ## TF-IDF
 
@@ -69,7 +69,7 @@ tfidf_transformer.fit(word_count_vector)
 df_idf = pd.DataFrame(tfidf_transformer.idf_, index=cv.get_feature_names_out(),columns=["idf_weights"]) 
 df_idf.sort_values(by=['idf_weights'])
 ```
-![TF-IDF weights](./pictures/tf_idf_weights.png)
+![TF-IDF weights](../pictures/tf_idf_weights.PNG)
 
 ```python
 count_vector = cv.transform([x for x in clean_text_combined])
@@ -81,7 +81,7 @@ tf_idf_df = pd.DataFrame(first_document_vector.T.todense(), index=feature_names,
 tf_idf_df = tf_idf_df.sort_values(by=["tfidf"],ascending=False)
 tf_idf_df[:10].plot(kind="bar", colormap="viridis")
 ```
-![TF-IDF](./pictures/tfidf.png)
+![TF-IDF](../pictures/tfidf.png)
 
 ## Suosituimmat sanat luotettavissa uutisissa
 
@@ -94,7 +94,7 @@ tokenized_counts_true = Counter(tokenizer_true.word_counts)
 wc_true = WordCloud(max_words= 200, width = 1600, height= 800).generate_from_frequencies(tokenized_counts_true)
 plt.imshow(wc_true, interpolation = 'bilinear')
 ```
-![True words](./pictures/true_words.png)
+![True words](../pictures/true_words.png)
 
 ## Suosituimmat sanat valheellisissa uutisissa
 
@@ -107,7 +107,7 @@ tokenized_counts_false = Counter(tokenizer_false.word_counts)
 wc_false = WordCloud(max_words= 200, width = 1600, height= 800).generate_from_frequencies(tokenized_counts_false)
 plt.imshow(wc_false, interpolation = 'bilinear')
 ```
-![False words](./pictures/false_words.png)
+![False words](../pictures/false_words.png)
 
 ## N-gram
 
@@ -122,7 +122,7 @@ true_bigrams_series = true_bigrams_series.value_counts()
 true_bigrams_series = true_bigrams_series.sort_values(ascending=False)
 true_bigrams_series[:20].plot(kind='barh', figsize=(10,5), xlabel='Bigram', ylabel='# of Occurances', title='20 Most frequently Occuring Bigrams (True Dataset)')
 ```
-![True bigram](./pictures/true_bigram.png)
+![True bigram](../pictures/true_bigram.png)
 
 Valheellisten uutisten bigrammi.
 
@@ -133,7 +133,7 @@ false_bigrams_series = false_bigrams_series.value_counts()
 false_bigrams_series = false_bigrams_series.sort_values(ascending=False)
 false_bigrams_series[:20].plot(kind='barh', figsize=(10,5), xlabel='Bigram', ylabel='# of Occurances', title='20 Most frequently Occuring Bigrams (False Dataset)')
 ```
-![False bigram](./pictures/false_bigram.png)
+![False bigram](../pictures/false_bigram.png)
 
 ### Lähteet
 1. [TF-IDF](https://towardsdatascience.com/text-summarization-using-tf-idf-e64a0644ace3)

@@ -23,7 +23,7 @@ model.compile(optimizer=tf.keras.optimizers.Adam(learning_rate = 0.01), loss='bi
 model.summary()
 ```
 
-![Model](./pictures/model.png)
+![Model](../pictures/model.PNG)
 
 Jotkin mallin parametrit olivat itselle erittäin mystisiä ja niiden testaaminen oli hidasta. Koko mallin rakentaminen kesti 30 minuuttia, joten pyrin välttämään turhaa säätämistä. Tietenkin epochsin määrää voisi vähentää esimerkiksi neljään, jolloin datasetti käytäisiin vain 4 kertaa läpi.
 
@@ -54,7 +54,7 @@ predict = model.predict_classes(X_test)
 print(classification_report(y_test, predict))
 ```
 
-![Testdata predict](./pictures/testidata_ennusteet.png)
+![Testdata predict](../pictures/testidata_ennusteet.PNG)
 
 Precision eli tarkkuus kertoo, kuinka positiiviseksi luokitellut datapisteet oli positiivisia. Recall eli herkkyys taas kertoo siitä, kuinka hyvin malli pystyy luokittelemaan positiiviseksi kaikki oikeasti positiiviset tapaukset. [Tästä](https://en.wikipedia.org/wiki/Precision_and_recall) voi vielä lukea lisää tietoa. F1-arvo puolestaan on tarkkuden ja herkkyyden painotettu keskiarvo. Yhteenvetona voidaan sanoa, että tulokset ovat todella hyvät.
 
